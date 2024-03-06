@@ -34,6 +34,8 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            @guest
+                           
                             <div class="px-4 py-2">
                                 <div class="flex justify-center">
                                     <a href="{{route('login')}}" class="btn btn-purple">
@@ -41,9 +43,27 @@
                                     </a>
                                 </div>
                                 <p class="text-sm text-center mt-2">
-                                    ¿No tienes cuenta? <a href="{{registro}}" class="text-purple-600 hover:underline">Registrate</a>
+                                    ¿No tienes cuenta? <a href="{{route('register')}}" class="text-purple-600 hover:underline">Registrate</a>
                                 </p>
                             </div>
+                                
+                            @else 
+                            <x-dropdown-link href="{{route('profile.show')}}">
+                                Mi perfil
+                            </x-dropdown-link>
+                                
+                            <div class="border-t border-gray-200">
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+    
+                                    <x-dropdown-link href="{{ route('logout') }}"
+                                             @click.prevent="$root.submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </div>
+                   
+                            @endguest
                         </x-slot>
                     </x-dropdown>
 
