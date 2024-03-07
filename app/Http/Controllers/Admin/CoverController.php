@@ -7,6 +7,8 @@ use App\Models\Cover;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use function Livewire\store;
+
 class CoverController extends Controller
 {
     /**
@@ -30,22 +32,22 @@ class CoverController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $request -> validate([
-        'image' => 'required|image|max:1024',
-        'title' => 'required|string|max:255',
-        'start_at' => 'required|date',
-        'end_at' => 'nullable|date|after_or_equal:start_at',
-        'is_active' => 'required|boolean',
-       ]);
-       $data['image_path'] = Storage::put('covers', $data['image']);
-       $cover = Cover::create($data);
-       session()->flash('swal',[
-        'icon' => 'success',
-        'title' => '¡Portada Creada!',
-        'text' => 'Portada creada correctamente',
-    ]);
-    return redirect()->route('admin.covers.edit', $cover);
+        $data = $request -> validate([
+            'image' => 'required|image|max:1024',
+            'title' => 'required|string|max:255',
+            'start_at' => 'required|date',
+            'end_at' => 'nullable|date|after_or_equal:start_at',
+            'is_active' => 'required|boolean',
+           ]);
+           $data['image_path'] = Storage::put('covers', $data['image']);
 
+           $cover = Cover::create($data);
+           session()->flash('swal',[
+            'icon' => 'success',
+            'title' => '¡Portada Creada!',
+            'text' => 'Portada creada correctamente',
+        ]);
+        return redirect()->route('admin.covers.edit', $cover);
     }
 
     /**
