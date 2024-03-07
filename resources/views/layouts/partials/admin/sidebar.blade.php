@@ -30,6 +30,13 @@
             'route' => route('admin.productos.index'),
             'active' => request()->routeIs('admin.productos.*'),
         ],
+        [
+            'name' => 'Portadas',
+            'icon' => 'fa-solid fa-images',
+            'route' => route('admin.covers.index'),
+            'active' => request()->routeIs('admin.covers.*'),
+
+        ],
     ];
 @endphp
 
