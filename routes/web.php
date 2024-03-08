@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
+
+Route::get('familias/{familia}', [FamiliaController::class, 'show'])->name('familias.show');
 
 Route::middleware([
     'auth:sanctum',

@@ -105,7 +105,7 @@
                         <div class="flex justify-between items-center">
 
                             <span class="text-lg">
-                                hola
+                                Menu
 
                             </span>
                             <button x-on:click= "open = false">
@@ -119,7 +119,7 @@
                         <ul>
                             @foreach ($familias as $familia)
                                 <li wire:mouseover="$set('familia_id', {{ $familia->id }})">
-                                    <a href=""
+                                    <a href="{{route('familias.show', $familia)}}"
                                         class="flex items-center justify-between px-4 py-4 text-gray-700 hover:bg-purple-200">
                                         {{ $familia->nombrefam }}
                                         <i class="fa-solid fa-angle-right">
