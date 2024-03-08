@@ -30,7 +30,16 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         @foreach ($lastProducts as $producto)
             <article class="bg-white shadow rounded overflow-auto">
-                <img src="{{$producto->imagen}}" class="w-full h-48 object-cover object-center">
+                <img src="{{$producto->image}}" class="w-full h-48 object-cover object-center">
+                <div class="p-4">
+                    <h1 class="text-lg font-bold text-gray-700 line-clamp-2 min-h-[56px] mb-2">
+                        {{$producto->nombrepro}}
+                    </h1>
+                    <p class="text-gray-600  mb-4">
+                       Bs. {{$producto->p_unit}}
+                    </p>
+                    <a href="" class="btn btn-blue block w-full text-center">Ver más</a>
+                </div>
             </article>
         @endforeach
     </div>
