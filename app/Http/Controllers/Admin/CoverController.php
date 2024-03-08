@@ -16,7 +16,8 @@ class CoverController extends Controller
      */
     public function index()
     {
-        return view('admin.covers.index');
+        $covers = Cover::orderBy('order')->get();
+        return view('admin.covers.index', compact('covers'));
     }
 
     /**
@@ -39,9 +40,11 @@ class CoverController extends Controller
             'end_at' => 'nullable|date|after_or_equal:start_at',
             'is_active' => 'required|boolean',
            ]);
+
            $data['image_path'] = Storage::put('covers', $data['image']);
 
            $cover = Cover::create($data);
+
            session()->flash('swal',[
             'icon' => 'success',
             'title' => '¡Portada Creada!',
@@ -71,7 +74,27 @@ class CoverController extends Controller
      */
     public function update(Request $request, Cover $cover)
     {
-        //
+        $data = $request -> validate([
+            'image' => 'nullable|image|max:1024',
+            'title' => 'required|string|max:255',
+            'start_at' => 'required|date',
+            'end_at' => 'nullable|date|after_or_equal:start_at',
+            'is_active' => 'required|boolean',
+           ]);
+
+           if(isset($data['image'])){
+            Storage::delete($cover->image_path);
+            $data['image_path'] = Storage::put('covers', $data['image']);
+           }
+           $cover->update($data);
+
+           session()->flash('swal',[
+            'icon' => 'success',
+            'title' => '¡Portada Actualizada!',
+            'text' => 'La portada se actualizo correctamente',
+        ]);
+        return redirect()->route('admin.covers.edit', $cover);
+
     }
 
     /**
