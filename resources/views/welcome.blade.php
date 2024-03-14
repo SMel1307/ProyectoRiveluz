@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     @push('css')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @endpush
@@ -9,7 +10,7 @@
             <!-- Slides -->
             @foreach ($covers as $cover)
                 <div class="swiper-slide">
-                    <img src="{{ $cover->image }}" class="w-full aspect-[3/1] object-cover object-center" alt="">
+                    <img src="{{$cover->image}}" class="w-full aspect-[3/1] object-cover object-center" alt="">
                 </div>
             @endforeach
 
@@ -22,8 +23,12 @@
         <div class="swiper-button-next"></div>
 
     </div>
+    
+    
     <x-container>
-        <h1 class="text-2xl font-bold text-gray-700 mb-4">Ultimos Productos</h1>
+        <h1 class="text-2xl font-bold text-gray-700 mb-4">
+            Ultimos Productos
+        </h1>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach ($lastProducts as $producto)
@@ -36,7 +41,7 @@
                         <p class="text-gray-600  mb-4">
                             Bs. {{ $producto->p_unit }}
                         </p>
-                        <a href="" class="btn btn-blue block w-full text-center">Ver más</a>
+                        <a href="" class="btn btn-purple block w-full text-center">Ver más</a>
                     </div>
                 </article>
             @endforeach

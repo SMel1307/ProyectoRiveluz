@@ -8,7 +8,7 @@
     ],
 ]">
   <x-slot name="action">
-    <a class="btn btn-blue" href="{{ route('admin.productos.create') }}">
+    <a class="btn btn-purple" href="{{ route('admin.productos.create') }}">
         Nuevo
     </a>
 </x-slot>
@@ -69,7 +69,7 @@
         {{ $productos->links() }}
     </div>
 @else
-    <div class="flex items-center p-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+    <div class="flex items-center p-4 text-sm text-purple-800 rounded-lg bg-purple-50 dark:bg-gray-800 dark:text-purple-400"
         role="alert">
         <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             fill="currentColor" viewBox="0 0 20 20">

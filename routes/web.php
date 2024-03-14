@@ -1,6 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\FamiliaController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
 Route::get('familias/{familia}', [FamiliaController::class, 'show'])->name('familias.show');
+Route::get('categorias/{categoria}',[CategoriaController::class, 'show'])->name('categorias.show');
+Route::get('subcategorias/{subcategoria}',[SubcategoriaController::class, 'show'])->name('subcategoria.show');
+
+Route::get('products/{product}',[ProductoController::class, 'show'])->name('producto.show');
 
 Route::middleware([
     'auth:sanctum',
@@ -28,3 +36,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
