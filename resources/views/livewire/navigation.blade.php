@@ -76,9 +76,13 @@
                     </x-dropdown>
 
 
-                    <button class="text-2xl md:text-3xl">
-                        <i class="fas fa-shopping-cart text-white"></i>
-                    </button>
+                    <a href = "" class="relative">
+                        <i class="fas fa-shopping-cart text-white text-2xl md:text-3xl"></i>
+                        <span id="cart-count" 
+                        class="absolute -top-2 -end-4 inline-flex items-center justify-center w-6 h-6 bg-red-500 rounded-full text-xs font-bold text-white">
+                            {{Cart::instance('shopping')->count()}}
+                        </span>
+                    </a>
                 </div>
 
             </div>
@@ -143,7 +147,7 @@
                                     <ul class="mt-4 space-y-2">
                                         @foreach ($categoria->subcategoria as $subcategoria)
                                             <li>
-                                                <a href="{{route('subcategoria.show', $subcategoria)}}" class="text-sm text-gray-700 hover:text-purple-600">
+                                                <a href="{{route('subcategorias.show', $subcategoria)}}" class="text-sm text-gray-700 hover:text-purple-600">
                                                     {{ $subcategoria->nombresub }}
                                                 </a>
                                             </li>
@@ -162,6 +166,10 @@
 
     @push('js')
         <script>
+            Livewire.on('cartUpdated',(count)=>{
+                document.getElementById('cart-count').innerText = count;
+            })
+
             function search(value){
                 Livewire.dispatch('search',{
                     search: value

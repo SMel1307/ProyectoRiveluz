@@ -41,7 +41,7 @@
                         <p class="text-gray-600  mb-4">
                             Bs. {{ $producto->p_unit }}
                         </p>
-                        <a href="" class="btn btn-purple block w-full text-center">Ver más</a>
+                        <a href="{{ route('productos.show', $producto) }}" class="btn btn-purple block w-full text-center">Ver más</a>
                     </div>
                 </article>
             @endforeach

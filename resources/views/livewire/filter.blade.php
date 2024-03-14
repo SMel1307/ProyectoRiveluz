@@ -3,7 +3,7 @@
 
         <div class="md:lex-1">
 
-            
+
             <div class="flex items-center">
                 <span>
                     Ordenar por:
@@ -31,14 +31,15 @@
                             <p class="text-gray-600  mb-4">
                                 Bs. {{ $producto->p_unit }}
                             </p>
-                            <a href="{{route('productos.show', $producto)}}" class="btn btn-blue block w-full text-center">Ver más</a>
+                            <a href="{{ route('productos.show', $producto) }}"
+                                class="btn btn-blue block w-full text-center">Ver más</a>
                         </div>
                     </article>
                 @endforeach
             </div>
 
             <div class="mt-8">
-               {{$productos->links()}}  
+                {{ $productos->links() }}
 
             </div>
         </div>

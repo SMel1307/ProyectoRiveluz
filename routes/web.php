@@ -6,6 +6,7 @@ use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\WelcomeController;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,9 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
 Route::get('familias/{familia}', [FamiliaController::class, 'show'])->name('familias.show');
 Route::get('categorias/{categoria}',[CategoriaController::class, 'show'])->name('categorias.show');
-Route::get('subcategorias/{subcategoria}',[SubcategoriaController::class, 'show'])->name('subcategoria.show');
+Route::get('subcategorias/{subcategoria}',[SubcategoriaController::class, 'show'])->name('subcategorias.show');
 
-Route::get('products/{product}',[ProductoController::class, 'show'])->name('producto.show');
+Route::get('productos/{producto}',[ProductoController::class, 'show'])->name('productos.show');
 
 Route::middleware([
     'auth:sanctum',
@@ -35,5 +36,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::get('prueba', function(){
+    Cart::instance('shopping');
+    return Cart::content();
 });
 

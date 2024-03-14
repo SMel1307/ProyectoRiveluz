@@ -10,7 +10,7 @@
                     <input type="file" class="hidden" accept="image/*" wire:model="image">
                 </label>
             </div>
-            <img class="aspect-[16/9] object-cover object-center w-full"
+            <img class="aspect-[1/1] object-cover object-center w-full"
                 src="{{ $image ? $image->temporaryUrl() : Storage::url($productoEdit['imagen']) }}" alt="">
         </figure>
 
