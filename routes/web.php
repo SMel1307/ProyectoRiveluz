@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProductoController;
@@ -27,6 +27,8 @@ Route::get('categorias/{categoria}',[CategoriaController::class, 'show'])->name(
 Route::get('subcategorias/{subcategoria}',[SubcategoriaController::class, 'show'])->name('subcategorias.show');
 
 Route::get('productos/{producto}',[ProductoController::class, 'show'])->name('productos.show');
+
+Route::get('cart', [CartController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
