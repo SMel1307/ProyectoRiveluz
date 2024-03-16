@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\purpleprint;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subcategorias', function (purpleprint $table) {
+        Schema::create('subcategorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombresub');
             $table->foreignId('categoria_id')->constrained();

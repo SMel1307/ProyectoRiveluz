@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\WelcomeController;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -28,7 +29,9 @@ Route::get('subcategorias/{subcategoria}',[SubcategoriaController::class, 'show'
 
 Route::get('productos/{producto}',[ProductoController::class, 'show'])->name('productos.show');
 
-Route::get('cart', [CartController::class, 'index']);
+Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::get('shipping', [ShippingController::class, 'index'])->name('shipping.index');
 
 Route::middleware([
     'auth:sanctum',
