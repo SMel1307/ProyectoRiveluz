@@ -33,6 +33,10 @@ Route::get('cart', [CartController::class, 'index'])->name('cart.index');
 
 Route::get('shipping', [ShippingController::class, 'index'])->name('shipping.index');
 
+Route::get('orders/create', function (){
+ 
+})->name('orders.create');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
