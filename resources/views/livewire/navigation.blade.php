@@ -44,7 +44,6 @@
 
                         <x-slot name="content">
                             @guest
-
                                 <div class="px-4 py-2">
                                     <div class="flex justify-center">
                                         <a href="{{ route('login') }}" class="btn btn-purple">
@@ -95,7 +94,7 @@
     </header>
 
     <div x-show="open" x-on:click="open = false" style="display: none"
-        class="fixed top-0 left-0 inset-0 bg-black bg-opacity-25">
+        class="fixed top-0 left-0 inset-0 bg-black bg-opacity-25 z-10">
         <div x-show="open" style="display: none" class="fixed top-0 left-0 z-20">
 
             <div class="flex">

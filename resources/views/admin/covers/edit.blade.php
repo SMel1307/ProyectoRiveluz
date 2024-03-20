@@ -50,7 +50,7 @@
                 Fecha de termino (opcional)
             </x-label>
             <x-input type="date" name="end_at"
-                value="{{ old('end_at', $cover->end_at ? $cover->end_atformat('Y-m-d') : '') }}" class="w-full" />
+                value="{{ old('end_at', $cover->end_at ? $cover->end_at->format('Y-m-d') : '') }}" class="w-full" />
         </div>
         <div class="mb-4 flex space-x-2">
             <label>
