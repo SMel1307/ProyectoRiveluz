@@ -181,17 +181,5 @@
         </div>
     </section>
 
-    <div class="lg:col-span-2">
-        <div class="card">
-            <div class="flex justify-between font-semibold mb-2">
-                <p>Total:</p>
-                <p>
-                    Bs. {{ Cart::subtotal() }}
-                </p>
-            </div>
-            <a href="{{route('shipping.index')}}" class="btn btn-purple block w-full text-center">
-                Continuar compra
-            </a>
-        </div>
-    </div>
+  
 </div>
